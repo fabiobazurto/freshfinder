@@ -11,6 +11,20 @@ module FreshFinder
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+   config.before_configuration do
+      if Rails.env.test?
+        local_env_file_name = ENV["LOCAL_ENV_FILE"] || 'local_env.test.yml'
+        local_env_file = File.join(Rails.root, 'config', local_env_file_name)
+      else
+        local_env_file_name = ENV["LOCAL_ENV_FILE"] || 'local_env.yml'
+        local_env_file = File.join(Rails.root, 'config', local_env_file_name)
+      end
+      YAML.load(File.open(local_env_file)).each do |key, value|
+        ENV[key.to_s] = value.to_s
+      end if File.exists?(local_env_file)
+    end
+        
+    
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
