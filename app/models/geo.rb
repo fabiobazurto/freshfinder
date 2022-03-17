@@ -25,4 +25,10 @@ class Geo
   def self.to_wkt(feature)
     "srid=#{SRID};#{feature}"
   end
+
+  def self.g_within_polygon(points)
+    polygon = Geo.polygon(points)
+    where('ST_Covers(:polygon, coords)', polygon: Geo.to_wkt(polygon))
+  end  
+  
 end
