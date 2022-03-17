@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_17_201128) do
+ActiveRecord::Schema.define(version: 2022_03_17_204538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,12 +18,11 @@ ActiveRecord::Schema.define(version: 2022_03_17_201128) do
 
   create_table "zones", force: :cascade do |t|
     t.string "name"
-    t.geography "coords", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}, null: false
     t.float "longitude", null: false
     t.float "latitude", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["coords"], name: "index_zones_on_coords", using: :gist
+    t.string "full_address"
     t.index ["latitude", "longitude"], name: "index_zones_on_latitude_and_longitude"
   end
 
