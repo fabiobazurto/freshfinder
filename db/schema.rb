@@ -18,12 +18,11 @@ ActiveRecord::Schema.define(version: 2022_03_17_204538) do
 
   create_table "zones", force: :cascade do |t|
     t.string "name"
-    t.float "longitude", null: false
-    t.float "latitude", null: false
+    t.geography "coords", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "full_address"
-    t.index ["latitude", "longitude"], name: "index_zones_on_latitude_and_longitude"
+    t.index ["coords"], name: "index_zones_on_coords", using: :gist
   end
 
 end
