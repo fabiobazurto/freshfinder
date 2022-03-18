@@ -1,22 +1,9 @@
 <h1>Fresh Reach Point </h1>
 
-  <form class="form-wrapper is-active">
-        <fieldset class="section is-active">
-          <h3>Your results!</h3>
-          <% if @result.present? %>
-	  <p>Reachable! you are in our zone(s):</p>
-	  <ul>
-	    <% @result.each do|d|%>
-	    <li>
-	      <%=d.name%>
-	    </li>
-	    
-            <%end%>
-	  </ul>  
-	  <%else%>
-	  <p>		      "Oops, try again with a different address" </p>
-	    <%end%>
-
-	  <%= link_to "New Search", action: :index %>
-        </fieldset>
-      </form>
+<form class="form-wrapper is-active">
+  <fieldset class="section is-active">
+    <h2>Your results</h2>
+    <h3><%=t(@result)%></h3>
+    <%= link_to "New Search", {action: :index}, class: "button" %>
+  </fieldset>
+</form>

@@ -5,8 +5,8 @@
 <%= form_for(@zone, :html=>{:class=>"form-wrapper"}) do |f| %>
 
 <fieldset class="section is-active">
-  <h2>Coverage Reach Point</h2>	  
-  <input type="text" name="address" id="address" placeholder="Enter your address to check">
+  <h2><%=t(:title)%></h2>	  
+  <input type="text" name="address" id="address" placeholder="<%=t(:placeholder)%>" required>
 
   <%= f.submit "Check now!", class: "button" %>
   

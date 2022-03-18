@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+  true: "Delivery reachable!"
+  false: "Unreachable, try again"
+  placeholder: "Enter delivery address e.g.: 122 Piazzola St, Italy"
+  title: "Check delivery"
