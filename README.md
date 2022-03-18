@@ -1,5 +1,7 @@
 # README
 
+This web application use geocoder gem and it is using openstreetmap by default. If you wish to work with another map engine, such as google premier, you can edit lookup property in your `root-project/config/initializers/geocoder.rb`
+
 ## GEMS
 
 Run:
@@ -38,6 +40,18 @@ DATABASE_PASSWORD: "PASSWORD"
 ```
 
 For production, you have to provide a database url such as heroku pg *DATABASE_URL* as MY_APP_DATABASE_URL environment variable.
+
+## SEARCHING FOR AN ADDRESS 
+
+Open your console:
+
+`rails console`
+
+and run:
+
+`Zone.ready_for_delivery?(address:"YOUR-ADDRESS-STRING")`
+
+This method will return `true` or `false`
 
 ## POSSIBLE ERRORS
 If you are deploying to heroku, you should replace "postgre://" preffix for "postgis://" in your MY_APP_DATABASE_URL value.
