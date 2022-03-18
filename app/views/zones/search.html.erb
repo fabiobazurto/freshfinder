@@ -1,2 +1,22 @@
-<h1>Zones#search</h1>
-<p>Find me in app/views/zones/search.html.erb</p>
+<h1>Fresh Reach Point </h1>
+
+  <form class="form-wrapper is-active">
+        <fieldset class="section is-active">
+          <h3>Your results!</h3>
+          <% if @result.present? %>
+	  <p>Reachable! you are in our zone(s):</p>
+	  <ul>
+	    <% @result.each do|d|%>
+	    <li>
+	      <%=d.name%>
+	    </li>
+	    
+            <%end%>
+	  </ul>  
+	  <%else%>
+	  <p>		      "Oops, try again with a different address" </p>
+	    <%end%>
+
+	  <%= link_to "New Search", action: :index %>
+        </fieldset>
+      </form>

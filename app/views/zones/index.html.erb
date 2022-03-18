@@ -1,0 +1,17 @@
+<h1>Fresh Reach Point </h1>
+
+
+
+<%= form_for(@zone, :html=>{:class=>"form-wrapper"}) do |f| %>
+
+<fieldset class="section is-active">
+  <h2>Coverage Reach Point</h2>	  
+  <input type="text" name="address" id="address" placeholder="Enter your address to check">
+
+  <%= f.submit "Check now!", class: "button" %>
+  
+</fieldset>
+
+
+<% end %>
+

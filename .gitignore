@@ -36,3 +36,5 @@ yarn-debug.log*
 .yarn-integrity
 
 local_env.*
+/app/assets/builds/*
+!/app/assets/builds/.keep
