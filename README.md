@@ -1,24 +1,44 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## GEMS
 
-Things you may want to cover:
+Run:
 
-* Ruby version
+`bundle install`
 
-* System dependencies
+## DATABASE
 
-* Configuration
+Enable postgis extension in your Postgre by entering in your PG console and executing this command:
 
-* Database creation
+`CREATE EXTENSION postgis;`
 
-* Database initialization
+Then you can run:
 
-* How to run the test suite
+`rails db:migrate`
 
-* Services (job queues, cache servers, search engines, etc.)
+### SEEDING
 
-* Deployment instructions
+In order to load 2 zones with geometrical shape in the database use:
 
-* ...
+`rails db:seed`
+
+
+## ENVIRONMENT VARIABLES
+For development and test environments, create a local_env.yml and local_env_test.yml files in config folder. 
+
+Create files in linux bash
+
+`touch local.yml local.test.yml`
+
+Copy and paste this variables into the files and set with your local credentials.
+
+```
+DATABASE_USER: "USERNAME"
+DATABASE_PASSWORD: "PASSWORD"
+```
+
+For production, you have to provide a database url such as heroku pg *DATABASE_URL* as MY_APP_DATABASE_URL environment variable.
+
+## POSSIBLE ERRORS
+If you are deploying to heroku, you should replace "postgre://" preffix for "postgis://" in your MY_APP_DATABASE_URL value.
+
