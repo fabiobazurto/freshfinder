@@ -53,6 +53,10 @@ and run:
 
 This method will return `true` or `false`
 
+In order to get a list of zones where your point is located use:
+
+`Zone.search(address:"YOUR-ADDRESS-STRING")`
+
 ## POSSIBLE ERRORS
 If you are deploying to heroku, you should replace "postgre://" preffix for "postgis://" in your MY_APP_DATABASE_URL value.
 
